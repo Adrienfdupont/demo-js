@@ -1,7 +1,6 @@
 'use strict';
 
-function generate()
-{
+function generate(){
     let max = 5
     let min = 8
     for (let i = 0; i < 10; i++) {
@@ -16,8 +15,7 @@ function generate()
     console.log(min, max);
 }
 
-function getMinAndMax(array)
-{
+function getMinAndMax(array){
     console.log(Math.min(...array), Math.max(...array));
 }
 
@@ -26,8 +24,7 @@ for (let i = 0; i < 5; i++) {
     array.push(Math.random() * (5 - 8));
 }
 
-function generateAndStop()
-{
+function generateAndStop(){
     let loop = true;
     const counts = [];
     while (loop){
@@ -49,15 +46,13 @@ function generateAndStop()
     }
 }
 
-function myTimeOut()
-{
+function myTimeOut(){
     setTimeout(() => {
         console.log(Math.random() * (5 - 8));
     }, 1000);
 }
 
-function generateRandomAndStop(delay)
-{
+function generateRandomAndStop(delay){
     const counts = [];
     const interval = setInterval(
         ()=>{
@@ -82,11 +77,17 @@ function generateRandomAndStop(delay)
     )
 }
 
-function getPath()
-{
+function getPath(){
     const path = process.env.PATH;
-    const pathVariables = path.split(";").join("\n");
+    // const pathVariables = path.split(";").join("\n");
+
+    let pathVariables = "";
+    for (let i = 0; i < path.length; i++) {
+        if (path[i] === ";"){
+            pathVariables += "\n";
+        } else {
+            pathVariables  += path[i];
+        }
+    }
     console.log(pathVariables);
 }
-
-getPath();
